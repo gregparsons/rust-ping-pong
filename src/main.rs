@@ -53,8 +53,6 @@ fn run_ping(){
 		};
 	});
 
-	// why is there a 1:1 correlation between read attempts and writes in the above thread
-	// even when the pong client isn't running; something to do with when it gets STDOUT?
 	std::thread::spawn(move ||{
 
 		let socket_in = std::net::UdpSocket::bind("127.0.0.1:11111").expect("couldn't bind to address");
