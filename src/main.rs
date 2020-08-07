@@ -53,11 +53,11 @@ fn run_ping(){
 		};
 	});
 
+	// 
 	std::thread::spawn(move ||{
 
 		let socket_in = std::net::UdpSocket::bind("127.0.0.1:11111").expect("couldn't bind to address");
-	// 	// socket_send.connect("0.0.0.0:11111").expect("connect function failed");
-	//
+		// socket_send.connect("0.0.0.0:11111").expect("connect function failed");
 		let mut buf = [0; 10];
 		loop{
 			match socket_in.recv(&mut buf) {
@@ -116,10 +116,7 @@ fn run_pong(){
 					},
 					(false, _) => println!("Is it ping? No."),
 					// _ => println!("Should never get here."),
-			}
-
-
-
+				}
 			}
 			Err(e) => println!("recv function failed: {:?}", e),
 		}
